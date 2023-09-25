@@ -1,0 +1,175 @@
+/* Common styles for both light and dark themes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+.gradient-background {
+    background: linear-gradient(300deg, #00bfff, #ff4c68, #ef8172);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    width: 100%;
+    max-width: 375px;
+    min-height: 640px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 1.5rem;
+    overflow: hidden;
+}
+
+.display {
+    min-height: 200px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-align: right;
+    flex: 1 1 0%;
+}
+
+.display .input {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.display .output {
+    font-size: 3rem;
+    font-weight: 700;
+    width: 100%;
+    overflow: auto;
+}
+
+.display .operator {
+    color: #eb6666;
+}
+
+.display .brackets,
+.display .percent {
+    color: #26fed7;
+}
+
+.keys {
+    padding: 1.5rem;
+    border-radius: 1.5rem 1.5rem 0 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-gap: 1rem;
+    box-shadow: 0px -2px 16px rgba(0, 0, 0, 0.2);
+}
+
+.keys .key {
+    position: relative;
+    cursor: pointer;
+    display: block;
+    height: 0;
+    padding-top: 100%;
+    border-radius: 1.2rem;
+    transition: 0.2s;
+    user-select: none;
+}
+
+.keys .key span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: aliceblue;
+}
+
+.keys .key:hover {
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Light Theme */
+.calculator.light-theme {
+    background-color: #f7f7f7;
+    color: #333;
+}
+
+.keys.light-theme {
+    background-color: #ececec;
+}
+
+.keys.light-theme .key {
+    background-color: #abb3b6;
+}
+.keys.light-theme .key:hover{
+    box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.keys.light-theme .key.operator span,
+.display.light-theme .operator {
+    color: #e74c3c;
+}
+
+.keys.light-theme .key.action span,
+.display.light-theme .brackets,
+.display.light-theme .percent {
+    color: #3498db;
+}
+
+/* Dark Theme */
+.calculator.dark-theme {
+    background-color: #22252d;
+    color: #ffffff;
+}
+
+.keys.dark-theme {
+    background-color: #292d36;
+}
+
+.keys.dark-theme .key {
+    background-color: #262933;
+}
+
+.keys.dark-theme .key.operator span,
+.display.dark-theme .operator {
+    color: #eb6666;
+}
+
+.keys.dark-theme .key.action span,
+.display.dark-theme .brackets,
+.display.dark-theme .percent {
+    color: #26fed7;
+}
+
+/* Theme Switch Button */
+.theme-button {
+    background-color: #3f4c55;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.theme-button:hover {
+    background-color: #1d4a51;
+}
